@@ -196,7 +196,9 @@ export class AnalyticsManager extends Component {
             custom_client_id: this.clientId, // 這是裝置專屬的 ID
             custom_user_id: this.userId, // 這是帳號專屬的 ID，用於跨裝置追蹤
             custom_session_id: this.sessionId, // 將自定義的 session_id 加入事件參數
-            timestamp: Date.now(),
+            // 將毫秒轉為微秒 (Microseconds)
+            // Date.now() 本身就是 UTC 的 Unix Timestamp
+            timestamp_micros: Date.now() * 1000,
             ...params,
         };
 
