@@ -169,7 +169,7 @@ export abstract class BaseGameTest extends Component {
     }
 
     private simulateSpin(): void {
-        const firstSpinKey = `is_first_spin_${this.gameId}`;
+        const firstSpinKey = `is_first_spin_${this.gameId}_${this._currentTestUserId}`;
         const hasSpinBefore = localStorage.getItem(firstSpinKey);
         if (!hasSpinBefore) {
             AnalyticsManager.instance.trackGameFirstSpin();
